@@ -1,0 +1,61 @@
+@mixin clearfix{
+  &:before,
+  &:after{
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  &{
+    *zoom: 1;
+  }
+}
+
+.km-tab-wrapper{
+  box-sizing: border-box;
+  @include clearfix;
+  background-color: #fff;
+  
+  .km-tab-title{
+    @include clearfix;
+    margin-bottom: 5px;
+    li{
+      list-style: none;
+      display: inline-block;
+      float: left;
+
+      margin: 0 5px;
+
+      &.active,&:hover{
+        a{
+          color: #00b5e5;
+          border-bottom-color: #00b5e5;
+        }
+      }
+
+      a{
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        padding: 5px 10px;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+
+  .km-tab-body{
+    .km-tab-item{
+      display: none;
+
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
