@@ -1,4 +1,4 @@
-;(function ($, window, document, undefined) {
+;(function ($) {
 
 
     function init(jq) {
@@ -10,11 +10,11 @@
      * 初始化切换
      * @param jq
      */
-    function initClick(jq){
-        var title = jq.children('.km-tab-title').eq(0);
-        var body = jq.children('.km-tab-body').eq(0);
+    function initClick(jq) {
+        const title = jq.children('.km-tab-title').eq(0);
+        const body = jq.children('.km-tab-body').eq(0);
         title.children('li').each(function (index) {
-            $(this).on('click',function () {
+            $(this).on('click', function () {
                 $(this)
                     .addClass('active')
                     .siblings('li')
@@ -42,8 +42,8 @@
         }
 
         // 获得配置，这里为了得到用户的配置项，覆盖默认配置项，并保存到当前jquery插件实例中
-        var _opts = $.extend({}, $.fn.kmTab.defaults, options);
-        var jq = this;
+        const _opts = $.extend({}, $.fn.kmTab.defaults, options);
+        const jq = this;
         jq.config = _opts;
 
         // 链式调用
@@ -68,8 +68,5 @@
     /**
      * 插件的默认配置
      */
-    $.fn.kmTab.defaults = {
-
-
-    };
+    $.fn.kmTab.defaults = {};
 })(jQuery, window, document);
